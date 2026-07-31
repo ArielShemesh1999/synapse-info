@@ -1,20 +1,27 @@
-# Synapse — Organisation Brain
+# Synapse — the fabius operating console
 
-An interactive **organisation brain**: every team, human, AI agent, tool, workflow, SOP and project of a company on a single force-directed canvas — click any node to inspect a full profile. Apple design language, inspired by the "Conducting AI" org-graph concept.
+The console one agent is operated from. fabius runs on every major model — Anthropic, OpenAI, Google, Mistral, Groq — under a single stance: **scout wide, strike narrow**. Synapse is the surface that makes that stance visible and drivable: the agent's own architecture rendered as a force-directed graph, and nine views that turn the graph into a working control room.
 
-🔗 **Live demo:** https://synapse-vert-one.vercel.app
+🔗 **Live:** https://synapse-vert-one.vercel.app
 
-> Demo company **Northwind AI** (fictional Series-B SaaS): 121 nodes / 343 links — 27 people, 60 AI sub-agents, 8 departments, 6 teams, 10 tools, 4 projects, 3 workflows, 2 SOPs.
+## The nine views
 
-## Highlights
-- **Force-graph canvas** — drag / zoom / pan; hover highlights a node's 1-hop neighbourhood; click opens a profile + centers.
-- **Profile drawer** — per-type tabs. People: Overview / Work / AI Access / Activity / Compliance (with reporting structure). AI agents: Mission / Operating Rules / Vibe / Tools / Access + source provenance.
-- **Sidebar** — search, entity-type filters with live counts, Core/Enabling function filters, selected-node mini-card.
-- **Deep links** — `?node=<id>` selects + focuses on load. Keyboard: `/` search, `Esc` close.
+| View | What it does |
+| --- | --- |
+| **Graph** | The whole system as a canvas. Drag, zoom, hover to light up a node's neighbourhood, click for a full profile. |
+| **Org** | Top-down structure: the agent, its layers, and the specialists under each. |
+| **System** | A live map of the nervous system — router, lean core, skill layers, spine — with real counts. |
+| **Cockpit** | Describe a mission, get a plan as a DAG, run it in resumable waves with an approvals inbox. |
+| **Chat** | Talk to the agent directly; every turn is routed by layer, machinery and model tier. |
+| **Missions** | A kanban of work; each card can open a flow or hand off to a single specialist. |
+| **Memory** | Semantic recall over a compounding corpus, verify-gated so only certified output grounds later decisions. |
+| **Operator** | fabius as a persistent background agent: a D1-checkpointed step-then-verify loop, a cron heartbeat, routines and an artifact store. |
+| **Dashboard** | KPI rollups and an activity feed over everything above. |
 
 ## Stack
-Vanilla HTML/CSS/JS, **no build step**. force-graph (2D canvas) · GSAP · DiceBear · Simple Icons (CDN). Design tokens mapped from the Apple design system. AI-agent content sourced from real role definitions.
+
+Vanilla HTML/CSS/JS, **no build step** — decoupled modules that talk only through a read-only global and a document event bus. force-graph (2D canvas) and GSAP via CDN. Backend is a Cloudflare Worker with D1 as the source of truth, Vectorize plus Workers AI for embeddings, and a five-provider runtime behind one routing contract. Every `/api/*` call is token-authenticated.
 
 ---
 
-*Source code is private. This repo is the public overview.*
+*Source code is private. This repo is the public overview. The agent itself is open: [ArielShemesh1999/fabius](https://github.com/ArielShemesh1999/fabius).*
