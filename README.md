@@ -4,6 +4,10 @@
 
 **Live:** [synapse-vert-one.vercel.app](https://synapse-vert-one.vercel.app)
 
+<p align="center">
+  <img src="assets/preview.webp" alt="synapse — the live site" width="100%">
+</p>
+
 On site it is fabius; the page title reads *"scout wide · strike narrow · one agent, every model, one stance."* Nine tabs (Graph, Skills, System, Router, Chat, Missions, Memory, Operator, Dashboard) sit over a force-directed canvas of the agent's own architecture. No build step: `index.html` loads 21 global-IIFE scripts plus pinned `force-graph@1.43.5` and `gsap@3.12.5`. No module imports another: `js/store.js` is the sole API client and sole writer of `window.ORG`, and the rest talk over a `CustomEvent` bus. The backend is one Cloudflare Worker, `worker/src/index.js`, 4,882 lines in one file, over D1, Vectorize and Workers AI.
 
 ## Routing each task to the cheapest tier that still holds
